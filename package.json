@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/andrewylee930/myBlogPost/issues"
   },
-  "homepage": "https://github.com/andrewylee930/myBlogPost#readme"
+  "homepage": "https://github.com/andrewylee930/myBlogPost#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "lowdb": "^0.16.0",
+    "nodemon": "^1.11.0",
+    "serve-static": "^1.12.1"
+  }
 }
