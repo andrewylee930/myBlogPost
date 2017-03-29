@@ -1,8 +1,17 @@
 {
-  "name": "myblogpost",
+  "name": "my_blogpost",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is the project ya'll been waiting for",
   "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "lowdb": "^0.16.0",
+    "nodemon": "^1.11.0",
+    "serve-static": "^1.12.1",
+    "supervisor": "^0.12.0"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,20 +19,10 @@
     "type": "git",
     "url": "git+https://github.com/andrewylee930/myBlogPost.git"
   },
-  "author": "",
+  "author": "Andrew Lee",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/andrewylee930/myBlogPost/issues"
   },
-  "homepage": "https://github.com/andrewylee930/myBlogPost#readme",
-  "dependencies": {
-    "body-parser": "^1.17.1",
-    "express": "^4.15.2",
-    "lowdb": "^0.16.0",
-    "nodemon": "^1.11.0",
-    "serve-static": "^1.12.1",
-  }
-  "devDependencies": {
-    "supervisor": "^0.12.0"
-  }
+  "homepage": "https://github.com/andrewylee930/myBlogPost#readme"
 }

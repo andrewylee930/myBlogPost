@@ -5,6 +5,7 @@
     	<meta name='viewport' content='width=device-width, initial-scale=1.0;'>
     	<title>Todo List</title>
     	<link rel='stylesheet' href='styles/reset.css'>
+    	<link rel='stylesheet' href='styles/main.css'>
     	<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -16,48 +17,43 @@
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css">
 		<title>My Blog Post</title>
 	</head>
-	<body>
-		<div class="ui inverted segment">
-	  		<div class="ui inverted secondary menu">
-	    		<a class="active item" href="index.html">Home</a>
-	  		</div>
-		</div>
-	</body>
-    <link rel='stylesheet' href='styles/main.css'>
-</head>
-<body id="todoapp">
+	<body id="blogapp">
 
 	<!-- NAV BAR -->
 	<nav class="navbar navbar-default">
-	  <div class="container-fluid">
-	    <div class="navbar-header">
-	      <a class="navbar-brand" href="#">
-	        <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
-	      </a>
-	    </div>
-	  </div><!-- container-fluid -->
+		<div class="container-fluid">
+	    	<div class="navbar-header">
+	      		<a class="navbar-brand" href="#">
+	        		<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+				</a>
+	      		<a class="navbar-brand" href="admin.html" >
+	        		<span>Admin</span>
+				</a>
+			</div>
+		</div><!-- container-fluid -->
 	</nav><!-- nav -->
 
 	<!-- BODY -->
 	<div class="container">
 		<div class="row">
-			<div class="col-md-2 todo-col"></div>
-			<div class="col-md-8 todo-col">
+			<div class="col-md-2 blog-col"></div>
+			<div class="col-md-8 blog-col">
 
-				<ul class="list-group js-todolist">
+				<ul class="list-group js-bloglist">
 					<li class="list-group-item">
-						<span class="glyphicon glyphicon-refresh todo-spinner"></span>
+						<span class="glyphicon glyphicon-refresh blog-spinner"></span>
 					</li>
 				</ul>
 
 				<div class="input-group">
-						<input type="text" class="form-control js-todo-text" placeholder="Recipient's username" aria-describedby="basic-addon2">
-						<span class="input-group-addon todo-addbtn js-add-todo" id="basic-addon2">Add Todo</span>
-				</div><!-- js-add-todo -->
+						<input type="text" class="form-control js-blog-text" placeholder="Title" aria-describedby="basic-addon2">
+						<textarea class="" placeholder="Write About Life..."></textarea>
+						<span class="input-group-addon blog-addbtn js-add-blog" id="basic-addon2">Post Blog</span>
+				</div><!-- js-add-blog -->
 
 
 			</div><!-- content -->
-			<div class="col-md-2 todo-col"></div>
+			<div class="col-md-2 blog-col"></div>
 		</div><!-- row -->
 	</div><!-- container -->
 

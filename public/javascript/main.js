@@ -51,38 +51,49 @@
 		});
 	} // POST
 
-	function render(todoItems) {
-		const container = document.querySelector('.js-todolist');
+	function DELETE(url, data) {
+		return new Promise((resolve, reject) => {
+			const request = new XMLHttpRequest();
+			request.open('DELETE', url);
+			request.setRequestHeader('Content-Type', 'application/json');
+
+			request.onload = () => {
+				const data = JSON.parse(request.responseText);
+				resolve(data)
+			}; 
+			request.onerror = (err) => {
+				reject(err)
+			};
+
+			request.send(JSON.stringify(data));
+		});
+	} // DELETE
+
+	function render(blogItems) {
+		const container = document.querySelector('.js-bloglist');
 		container.innerHTML = '';
-		for (const todoItem of todoItems) {
+		for (const blogItem of blogItems) {
+			
 			const li = document.createElement('li');
 			li.innerHTML = `
-${todoItem.data.todo}
+				${blogItem.data.blog}
 			`;
 
-			if (todoItem.data.isDone) {
-				li.innerHTML += `<span class="glyphicon glyphicon-check todolist-icon js-todo-check green"></span>`
-			}
-			else {
-				li.innerHTML += `<span class="glyphicon glyphicon-unchecked todolist-icon js-todo-check"></span>`
-			}
-
-
-			li.classList.add('list-group-item', 'todolist-item');
+			li.classList.add('list-group-item', 'bloglist-item');
 
 			container.appendChild(li);
 			
-			li.querySelector('.js-todo-check').addEventListener('click', (e) => {
-				console.log(todoItem);
+			li.querySelector('.js-blog-check').addEventListener('click', (e) => {
+				console.log(blogItem);
 				let isDone;
-				if (todoItem.data.isDone) {
+				if (blogItem.data.isDone) {
 					isDone = false;
 				}
 				else {
 					isDone = true;
 				}
 
-				PUT('/api/todo/' + todoItem.id, {isDone})
+				PUT('/api/blog/' + blogItem.id, {isDone})
 					.then((data) => {
 						render(data);
 					})
@@ -93,44 +104,36 @@ ${todoItem.data.todo}
 			
 		}
 
-		if (todoItems.length === 0) {
+		if (blogItems.length === 0) {
 			container.innerHTML = `
-<li class="list-group-item">
-No todoitems!
-</li>
+			<li class="list-group-item">
+			No blogitems!
+			</li>
 			`;
 		}
 	} // render
 
 
-	GET('/api/todos')
-		.then((todoItems) => {
-			render(todoItems);
+	GET('/api/blog')
+		.then((blogItems) => {
+			render(blogItems);
 		});
 
-	document.querySelector('.js-add-todo').addEventListener('click', (e) => {
-		const input = document.querySelector('.js-todo-text');
+	document.querySelector('.js-add-blog').addEventListener('click', (e) => {
+		const input = document.querySelector('.js-blog-text');
 		input.setAttribute('disabled', 'disabled');
 
-		POST('/api/todos', {
-			todo: input.value,
+		POST('/api/blog', {
+			blog: input.value,
+			blogText: textInput.value
 			when: new Date().getTime() + 9 * 60 * 60 * 1000
 		}).then((data) => {
 			input.removeAttribute('disabled');
 			input.value = '';
+			textInput.removeAttribute('disabled');
+			textInput.value = '';
 			render(data);
 		});
 	})
 
 })();
-
-/*
-	return POST('/api/todos', {
-			todo: 'wake up',
-			when: new Date().getTime() + 9 * 60 * 60 * 1000
-		});
-	.then((dataFromPostLOL) => {
-		console.log(dataFromPostLOL);
-	});
-*/
-

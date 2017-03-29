@@ -4,6 +4,9 @@ const express = require('express');
 // grab db
 const low = require('lowdb');
 
+//grab admin stuff
+const admin = require('./admin')
+
 // static file server
 const serveStatic = require('serve-static');
 
@@ -16,28 +19,29 @@ const app = express();
 // instantiate db
 const db = low('./db.json');
 
+
 //parses requests with the content type of `application/json`
 app.use(parser.json());
 
 //define a route on `/hello/world`
-app.get('/api/todos',(request, response) => {
+app.get('/api/blog',(request, response) => {
     response.header('Content-Type', 'application/json');
-    response.send(db.get('todos').value());
+    response.send(db.get('posts').value());
 });
 
 
-// post todos
-app.post('/api/todos', (request, response) => {
+// post blog
+app.post('/api/blog', (request, response) => {
 	const requestBody = request.body;
 
 	// Add a post
-	db.get('todos').push({
+	db.get('posts').push({
 		id: Date.now(), 
 		data: requestBody,
 	}).write();
 
 	response.header('Content-Type', 'application/json');
-	response.send(db.get('todos').value());
+	response.send(db.get('blog').value());
 
 });
 
@@ -45,7 +49,7 @@ app.use('/', serveStatic( 'public', {
 	'index': [ 'index.html' ]
 }));
 
-app.delete('/api/todos', (request, response) => {
+app.delete('/api/blog', (request, response) => {
 	
 })
 

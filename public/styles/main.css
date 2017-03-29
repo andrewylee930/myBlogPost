@@ -1,28 +1,29 @@
 /* CURRENTLY IN: styles/main.css */
 html {
   font-size: 12px;
+  background-color: #57F3EE;
 }
 
-#todoapp .todo-col {
+#blogapp .blog-col {
   /*border: 1px solid black;*/
   text-align: center;
 }
 
-#todoapp .todo-spinner {
+#blogapp .blog-spinner {
   animation: spinner 2.0s linear infinite;
 }
 
-#todoapp .todolist-item {
+#blogapp .bloglist-item {
   font-weight: bold;
   text-align: left;
 }
 
-#todoapp .todolist-icon {
+#blogapp .bloglist-icon {
   float: right;
   margin: 0 0.25rem;
 }
 
-#todoapp .todo-addbtn {
+#blogapp .blog-addbtn {
   cursor: pointer;
 }
 
